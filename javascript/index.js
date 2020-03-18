@@ -6,5 +6,14 @@ function sendDeepLinkMessage() {
       "deepLinkURL": "walmart://tools"
     }
   };
-  window.webkit.messageHandlers.bridge.postMessage(JSON.stringify(message));
+
+  sendMessage(message);
+}
+
+function sendMessage(message) {
+  if (window.webkit.messageHandlers == undefined) {
+    window.webkit.messageHandlers.bridge.postMessage(JSON.stringify(message));
+  } else {
+    window.deviceBridge.postMessage(message);
+  }
 }
