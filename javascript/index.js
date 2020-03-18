@@ -1,4 +1,10 @@
 function sendDeepLinkMessage() {
   console.log("Sending deep link message")
-  window.webkit.messageHandlers.callback.postMessage("meow");
+  const message = {
+    "type": "deepLink",
+    "payload": {
+      "deepLinkURL": "walmart://tools"
+    }
+  };
+  window.webkit.messageHandlers.bridge.postMessage(JSON.stringify(message));
 }
