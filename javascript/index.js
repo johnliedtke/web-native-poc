@@ -1,7 +1,7 @@
 function sendDeepLinkMessage() {
   console.log("Sending deep link message")
   const message = {
-    "type": "deepLink",
+    "type": "DEEP_LINK",
     "payload": {
       "deepLinkURL": "walmart://tools"
     }
