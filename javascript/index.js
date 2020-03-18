@@ -12,6 +12,6 @@ function sendDeepLinkMessage() {
 
 function sendMessage(message) {
   console.log("sending message to both platforms");
-  window.webkit.messageHandlers.bridge.postMessage(message);
+  //window.webkit.messageHandlers.bridge.postMessage(message);
   window.deviceBridge.postMessage(message);
 };
