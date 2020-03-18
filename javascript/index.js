@@ -7,13 +7,15 @@ function sendDeepLinkMessage() {
     }
   };
 
-  sendMessage(message);
+  sendMessage(JSON.stringify(message));
 }
 
 function sendMessage(message) {
   if (window.webkit.messageHandlers == undefined) {
-    window.webkit.messageHandlers.bridge.postMessage(JSON.stringify(message));
+    console.log("sending message on iOS");
+    window.webkit.messageHandlers.bridge.postMessage(message);
   } else {
+    console.log("sending message on android");
     window.deviceBridge.postMessage(message);
   }
 }
