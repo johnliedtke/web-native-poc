@@ -8,14 +8,10 @@ function sendDeepLinkMessage() {
   };
 
   sendMessage(JSON.stringify(message));
-}
+};
 
 function sendMessage(message) {
-  if (window.webkit.messageHandlers == undefined) {
-    console.log("sending message on iOS");
-    window.webkit.messageHandlers.bridge.postMessage(message);
-  } else {
-    console.log("sending message on android");
-    window.deviceBridge.postMessage(message);
-  }
-}
+  console.log("sending message to both platforms");
+  window.webkit.messageHandlers.bridge.postMessage(message);
+  window.deviceBridge.postMessage(message);
+};
