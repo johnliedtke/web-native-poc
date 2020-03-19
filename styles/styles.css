@@ -9,7 +9,7 @@ div {
 }
 
 .image-section {
-  display: flex;
+  display: block;
   justify-content: center;
 }
 

@@ -20,7 +20,7 @@ function sendScannerMessage() {
   };
 
   sendMessageToBridge(JSON.stringify(message));
-};
+};git
 
 var sentMessages = new Array; 
 function sendMessageToBridge(message) {

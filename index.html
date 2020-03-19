@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Web Native POC</title>
-    <link rel="stylesheet" href="styles/styles.css" />
-    <script type="text/javascript" src="./javascript/index.js"></script>
-    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
-  </head>
-  <body>
-    <h1>Actions</h1>
-    <div class="image-section">
-      <div class="section-style">
-        <button type="button" class="button" onclick="sendDeepLinkMessage()">Evaluate Deeplink</button>
-      </div>
+
+<head>
+  <title>Web Native POC</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+  <script type="text/javascript" src="./javascript/index.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes" />
+</head>
+
+<body>
+  <h1>Actions</h1>
+  <div class="image-section">
+    <div class="section-style">
+      <button type="button" class="button" onclick="sendDeepLinkMessage()">Evaluate Deeplink</button>
     </div>
+  </div>
+  <div class="image-section">
+    <div class="section-style">
+      <button type="button" class="button" onclick="sendScannerMessage()">Evaluate Scanner</button>
     </div>
-  </body>
+  </div>  
+  <div class="image-section">
+    <div>
+      <h1>Sent Messages (webview->device)</h1>
+    </div>
+    <div class="section-style" id="sentMessages">
+      <p>test</p>
+    </div>
+  </div>
+  <div class="image-section">
+    <h1>Received Messages (device->webview)</h1>
+    <div class="section-style" id="receivedMessages">
+    </div>
+  </div>
+</body>
+
 </html>
