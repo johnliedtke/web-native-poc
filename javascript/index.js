@@ -25,7 +25,7 @@ function sendScannerMessage() {
 var sentMessages = new Array; 
 function sendMessageToBridge(message) {
   sentMessages.unshift(message);
-  const html = "<p>" + sentMessages.slice(0, 10).join("<p></p>") + "</p>";
+  const html = "<p>" + sentMessages.slice(0, 10).reverse().join("<p></p>") + "</p>";
   document.getElementById("sentMessages").innerHTML=html; 
 
   console.log("sending message=" + message);
@@ -44,7 +44,7 @@ var receivedMessages = new Array;
 function sendMessage(message) {
   receivedMessages.push(message);
 
-  const html = "<p>" + receivedMessages.slice(0, 10).join("<p></p>") + "</p>";
+  const html = "<p>" + receivedMessages.slice(0, 10).reverse().join("<p></p>") + "</p>";
   
   document.getElementById("receivedMessages").innerHTML=html; 
 }
