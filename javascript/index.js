@@ -20,7 +20,7 @@ function getNativeDeviceBridge() {
   console.log(window);
   return (
     window.deviceBridge ||
-    (window.webkit && window.webkit.messageHandlers.deviceBridge)
+    (window.webkit && window.webkit.messageHandlers.bridge)
   );
 };
 
