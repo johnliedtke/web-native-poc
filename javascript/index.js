@@ -20,6 +20,7 @@ function getNativeDeviceBridge() {
   // Android uses window.deviceBridge, IOS uses window.webkit.messageHandlers.deviceBridge
   console.log(window);
   console.log("android bridge" + window.deviceBridge);
+  return window.deviceBridge;
   return (
     window.deviceBridge ||
     (window.webkit && window.webkit.messageHandlers.bridge)
