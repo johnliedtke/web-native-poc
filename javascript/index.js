@@ -12,6 +12,7 @@ function sendDeepLinkMessage() {
 
 function sendMessage(message) {
   console.log("sending message=" + message);
+  console.log("android bridge" + window.deviceBridge);
   getNativeDeviceBridge().postMessage(message);
 };
 
