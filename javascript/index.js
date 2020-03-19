@@ -10,9 +10,25 @@ function sendDeepLinkMessage() {
   sendMessageToBridge(JSON.stringify(message));
 };
 
+function sendScannerMessage() {
+  console.log("Sending scanner message")
+  const message = {
+    "type": "SCANNER",
+    "payload": {
+      "isManualEntryEnabled": true
+    }
+  };
+
+  sendMessageToBridge(JSON.stringify(message));
+};
+
+var sentMessages = new Array; 
 function sendMessageToBridge(message) {
+  sentMessages.unshift(message);
+  const html = "<p>" + sentMessages.slice(0, 10).join("<p></p>") + "</p>";
+  document.getElementById("sentMessages").innerHTML=html; 
+
   console.log("sending message=" + message);
-  console.log("android bridge" + window.deviceBridge);
   getNativeDeviceBridge().postMessage(message);
 };
 
@@ -24,12 +40,12 @@ function getNativeDeviceBridge() {
   );
 };
 
-var messages = new Array; 
+var receivedMessages = new Array; 
 function sendMessage(message) {
-  messages.push(message);
+  receivedMessages.push(message);
 
-  const html = "<p>" + messages.join("</p><p>") + "</p>";
+  const html = "<p>" + receivedMessages.slice(0, 10).join("\n") + "</p>";
   
-  document.getElementById("messages").innerHTML=html; 
+  document.getElementById("receivedMessages").innerHTML=html; 
 }
 
