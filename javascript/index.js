@@ -12,9 +12,9 @@ function sendDeepLinkMessage() {
 
 function sendMessage(message) {
   console.log("sending message=" + message);
-  if (window.webkit.messageHandlers) {
-    window.webkit.messageHandlers.bridge.postMessage(message);
-  } else {
+  if (window.deviceBridge) {
     window.deviceBridge.postMessage(message);
+  } else {
+    window.webkit.messageHandlers.bridge.postMessage(message);
   }
 };
