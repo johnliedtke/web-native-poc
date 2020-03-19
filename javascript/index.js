@@ -21,8 +21,8 @@ function getNativeDeviceBridge() {
   console.log(window);
   console.log("android bridge" + window.deviceBridge);
   return window.deviceBridge;
-  return (
-    window.deviceBridge ||
-    (window.webkit && window.webkit.messageHandlers.bridge)
-  );
+  // return (
+  //   window.deviceBridge ||
+  //   (window.webkit && window.webkit.messageHandlers.bridge)
+  // );
 };
