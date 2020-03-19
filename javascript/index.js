@@ -12,9 +12,13 @@ function sendDeepLinkMessage() {
 
 function sendMessage(message) {
   console.log("sending message=" + message);
-  if (window.deviceBridge) {
-    window.deviceBridge.postMessage(message);
-  } else {
-    window.webkit.messageHandlers.bridge.postMessage(message);
-  }
+  getNativeDeviceBridge().postMessage(message);
+};
+
+function getNativeDeviceBridge() {
+  // Android uses window.deviceBridge, IOS uses window.webkit.messageHandlers.deviceBridge
+  return (
+    window.deviceBridge ||
+    (window.webkit && window.webkit.messageHandlers.deviceBridge)
+  );
 };
