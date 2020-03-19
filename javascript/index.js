@@ -44,7 +44,7 @@ var receivedMessages = new Array;
 function sendMessage(message) {
   receivedMessages.push(message);
 
-  const html = "<p>" + receivedMessages.slice(0, 10).join("\n") + "</p>";
+  const html = "<p>" + receivedMessages.slice(0, 10).join("<p></p>") + "</p>";
   
   document.getElementById("receivedMessages").innerHTML=html; 
 }
