@@ -23,5 +23,3 @@ function getNativeDeviceBridge() {
     (window.webkit && window.webkit.messageHandlers.bridge)
   );
 };
-
-getNativeDeviceBridge();
