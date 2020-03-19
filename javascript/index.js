@@ -7,10 +7,10 @@ function sendDeepLinkMessage() {
     }
   };
 
-  sendMessage(JSON.stringify(message));
+  sendMessageToBridge(JSON.stringify(message));
 };
 
-function sendMessage(message) {
+function sendMessageToBridge(message) {
   console.log("sending message=" + message);
   console.log("android bridge" + window.deviceBridge);
   getNativeDeviceBridge().postMessage(message);
@@ -23,3 +23,13 @@ function getNativeDeviceBridge() {
     (window.webkit && window.webkit.messageHandlers.bridge)
   );
 };
+
+var messages = new Array; 
+function sendMessage(message) {
+  messages.push(message);
+
+  const html = "<p>" + messages.join("</p><p>") + "</p>";
+  
+  document.getElementById("messages").innerHTML=html; 
+}
+
